@@ -24,7 +24,7 @@ const ListItem = ({actions = [], onActionClick, children}) => {
   return <ListItemContainer>
     <ListItemContent>{children}</ListItemContent>
     <ListItemActions>
-      {actions.map(action => <Button key={action} onClick={() => onActionClick(action)}>{action}</Button>)}
+      {actions.map(item => <Button key={item.action} onClick={() => onActionClick(item.action)}>{item.icon}</Button>)}
     </ListItemActions>
   </ListItemContainer>;
 }

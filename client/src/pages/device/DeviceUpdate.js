@@ -13,6 +13,7 @@ const DeviceUpdate = () => {
 
   const onSubmit = (values) => {
     console.log(values);
+    values.hdd_capacity = values.hdd_capacity.replaceAll(',', '');
     upsertDevice(values, id)
       .then(res => {
         console.log(res);

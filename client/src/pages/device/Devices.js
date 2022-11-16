@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons'
 import Dropdown from '../../components/Dropdown';
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
@@ -34,24 +36,6 @@ const Devices = () => {
     setFilteredDevices(_filteredDevices);
   }, [filterBy, sortBy, devices]);
 
-  // const [device, error] = useApi(getDevice('e8okoP2l5'));
-  // console.log(device, error);
-
-  // const [device, deviceUpsertError] = useApi(
-  //   upsertDevice(
-  //     {
-  //       hdd_capacity: "1000",
-  //       system_name: "DESKTOP-MARIANO-ALVIZOURI",
-  //       type: "WINDOWS_WORKSTATION"
-  //     },
-  //     "3eLoxOgIth" // id
-  //   )
-  // );
-  // console.log(device, deviceUpsertError);
-
-  // const [device, removeDeviceError] = useApi(removeDevice("3eLoxOgIth"));
-  // console.log(device, removeDeviceError);
-
   const onActionClick = useCallback((action, deviceId) => {
     // console.log(action, deviceId);
     if (action === 'edit') {
@@ -63,7 +47,7 @@ const Devices = () => {
           .catch(err => console.log(err));
       }).catch(err => console.log(err));
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="devices">
@@ -82,7 +66,15 @@ const Devices = () => {
       <List>
         {filteredDevices.map(item => <ListItem
           key={item.id}
-          actions={['edit', 'remove']}
+          actions={[{
+              action: 'edit',
+              icon: <FontAwesomeIcon icon={faPencil} />
+            },
+            {
+              action: 'remove',
+              icon: <FontAwesomeIcon icon={faTrash} />
+            }
+          ]}
           onActionClick={(action) => onActionClick(action, item.id)}
         >
           <DeviceInfo systemName={item.system_name} type={item.type} hddCapacity={item.hdd_capacity} />
