@@ -1,5 +1,6 @@
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import DeviceFormContainer from './DeviceFormContainer';
 import Input from '../../components/Input';
 import InputNumber from '../../components/InputNumber';
 import Select from '../../components/Select';
@@ -12,26 +13,29 @@ const DeviceForm = ({
   onSubmit
 }) => {
   const navigate = useNavigate();
-  return <Formik
-      initialValues={initialValues ?? {
-        system_name: '',
-        type: '',
-        hdd_capacity: ''
-      }}
-      onSubmit={onSubmit}
-      validationSchema={deviceValidationSchema}
-    >
-      {props => {
-        // console.log('ALV', props);
-        return <Form>
-        <Input label="System Name" type="text" name="system_name" />
-        <Select label="Type" type="text" name="type" options={deviceTypes} />
-        <InputNumber label="HDD Capacity" name="hdd_capacity" allowNegative={false} thousandSeparator="," />
-        <Button type="submit" disabled={!props.isValid || props.isValidating || !props.dirty}>Save</Button>
-        <Button type="button" variant="secondary" onClick={() => navigate('/')}>Cancel</Button>
-      </Form>
-      }}
-  </Formik>;
+  return <DeviceFormContainer>
+      <Formik
+        initialValues={initialValues ?? {
+          system_name: '',
+          type: '',
+          hdd_capacity: ''
+        }}
+        onSubmit={onSubmit}
+        validationSchema={deviceValidationSchema}
+      >
+        {props => {
+          return <Form>
+          <Input label="System Name" type="text" name="system_name" />
+          <Select label="Type" type="text" name="type" options={deviceTypes} />
+          <InputNumber label="HDD Capacity" name="hdd_capacity" allowNegative={false} thousandSeparator="," />
+          <div className="buttons">
+            <Button type="submit" disabled={!props.isValid || props.isValidating || !props.dirty}>Save</Button>
+            <Button type="button" variant="danger" onClick={() => navigate('/')}>Cancel</Button>
+          </div>
+        </Form>
+        }}
+    </Formik>
+  </DeviceFormContainer>;
 };
 
 export default DeviceForm;

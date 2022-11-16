@@ -3,10 +3,14 @@ import styled from 'styled-components';
 const Button = styled.button`
   margin: 2px;
   border: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
   text-transform: uppercase;
+
+  span {
+    margin-right: 5px;
+  }
 
   ${({ variant = 'primary' }) => `
     background-color: var(--color-${variant});

@@ -28,7 +28,9 @@ const Dropdown = ({
   }, [itemsRef, open]);
 
   return <DropdownContainer id={id} ariarole="button" open={open} onClick={() => setOpen(state => !state)}>
-    <span>{label}: {selected.text}</span>
+    <span>
+      {label}: <span className="current">{selected.text}</span>
+    </span>
     <div className="arrow"></div>
     <ul ref={itemsRef} className={`dropdown-items dropdown-items--${open ? 'open' : 'closed'}`}>
       {items.filter(item => selected.value !== item.value).map(item => <li key={item.value}>

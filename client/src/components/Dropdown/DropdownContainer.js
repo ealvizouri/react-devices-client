@@ -6,6 +6,10 @@ const DropdownContainer = styled.div`
   position: relative;
   cursor: pointer;
   @extend .noselect;
+  .current {
+    font-weight: bold;
+  }
+
   .arrow {
     margin-left: 5px;
     position: relative;

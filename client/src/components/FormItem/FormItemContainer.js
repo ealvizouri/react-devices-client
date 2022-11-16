@@ -9,7 +9,7 @@ const FormItemContainer = styled.div`
     align-items: center;
     text-align: right;
     > span:first-child {
-      flex-basis: 20%;
+      width: 200px;
       ${({ required }) => !required ? '' : `
       &::after {
         content: '*';

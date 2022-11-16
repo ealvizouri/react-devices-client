@@ -6,26 +6,24 @@ const ListItemContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const ListItemContent = styled.div`
-  margin-right: 5px;
-`;
-
-const ListItemActions = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  button {
-    text-transform: capitalize;
+  > div.list-item__content {
+    margin-right: 5px;
+  }
+  > div.list-item__actions {
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      text-transform: capitalize;
+    }
   }
 `;
 
-const ListItem = ({actions = [], onActionClick, children}) => {
+const ListItem = ({ actions = [], children }) => {
   return <ListItemContainer>
-    <ListItemContent>{children}</ListItemContent>
-    <ListItemActions>
-      {actions.map(item => <Button key={item.action} onClick={() => onActionClick(item.action)}>{item.icon}</Button>)}
-    </ListItemActions>
+    <div className="list-item__content">{children}</div>
+    <div className="list-item__actions">
+      {actions.map(({ action, icon, ...props}) => <Button key={action} {...props}>{icon}</Button>)}
+    </div>
   </ListItemContainer>;
 }
 

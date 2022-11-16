@@ -7,15 +7,18 @@
 }
 $darkenAmount: 20%;
 :root {
-  @include defineColor(clean, #fff, $darkenAmount);
-  @include defineColor(primary, #2077ed, $darkenAmount);
-  @include defineColor(secondary, #8c8c8c, $darkenAmount);
-  @include defineColor(success, #6ab925, $darkenAmount);
-  @include defineColor(danger, #ff4747, $darkenAmount);
-  @include defineColor(warning, #f3af33, $darkenAmount);
-  @include defineColor(info, #17639e, $darkenAmount);
-  @include defineColor(text-primary, #2f2f2f, $darkenAmount);
+  @include defineColor(clean, #FFF, $darkenAmount);
+  @include defineColor(primary, #3BA1C4, $darkenAmount);
+  @include defineColor(secondary, #8C8C8C, $darkenAmount);
+  @include defineColor(success, #89C664, $darkenAmount);
+  @include defineColor(danger, #DD3900, $darkenAmount);
+  @include defineColor(warning, #F3AF33, $darkenAmount);
+  @include defineColor(info, #25677D, $darkenAmount);
+  @include defineColor(text-primary, #2F2F2F, $darkenAmount);
   @include defineColor(text-secondary, #535353, $darkenAmount);
+  @include defineColor(overlay, #2F2F2F1F, $darkenAmount);
+  --breakpoint-md: 600px;
+  --breakpoint-lg: 1200px;
 }
 
 body {
@@ -30,11 +33,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-
-.App {
-  text-align: center;
 }
 
 .noselect {

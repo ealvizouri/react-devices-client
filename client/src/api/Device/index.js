@@ -11,13 +11,11 @@ export const getDevices = () => _fetch('devices/').then(res => res.map(item => (
 
 export const getDevice = (id) => _fetch(`devices/${id}`);
 
-export const upsertDevice = (body, id = '') => _fetch(
-  `devices/${id}`,
-  id ? 'PUT' : 'POST',
-  body
-);
+export const createDevice = (body) => _fetch(`devices/`, 'POST', body);
 
-export const removeDevice = (id) => _fetch(
+export const updateDevice = (body, id) => _fetch(`devices/${id}`, 'PUT', body);
+
+export const deleteDevice = (id) => _fetch(
   `devices/${id}`,
   'DELETE'
 );

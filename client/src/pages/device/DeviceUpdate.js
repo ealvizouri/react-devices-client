@@ -1,39 +1,54 @@
-import { Link, useParams } from 'react-router-dom';
-
+import { useState, useCallback } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useApi } from '../../api/useApi';
-import { getDevice, upsertDevice } from '../../api/Device';
-
+import { updateDevice } from '../../api/Device';
+import Spinner from '../../components/Spinner';
+import Breadcrumb from '../../components/Breadcrumb';
 import DeviceForm from './DeviceForm';
-// import { getDevices, getDevice, upsertDevice, removeDevice } from './api/Device';
 
 const DeviceUpdate = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
-  const [device, error] = useApi(`devices/${id}`, (o) => o, null);
-  console.log(device);
+  const navigate = useNavigate();
+  const [device] = useApi(`devices/${id}`, (o) => o, null);
+  const crumbs = [
+    {
+      to: '/',
+      text: 'Dashboard'
+    },
+    {
+      text: 'Update device'
+    }
+  ];
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = useCallback((values) => {
+    setIsLoading(true);
     values.hdd_capacity = values.hdd_capacity.replaceAll(',', '');
-    upsertDevice(values, id)
-      .then(res => {
-        console.log(res);
+    updateDevice(values, id)
+      .then(() => {
+        setIsLoading(false);
+        navigate('/');
       })
-      .catch(err => console.log(err))
-      .finally(() => console.log('finally'));
-  }
+      .catch(err => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  }, []);
 
-  return <div>
-    <Link to={'/'}>Return to Dashboard</Link><br />
-    Device Page
-    {device ? <DeviceForm
-      initialValues={{
-        system_name: device.system_name,
-        type: device.type,
-        hdd_capacity: device.hdd_capacity
-      }}
-      onSubmit={onSubmit}
-    /> : null}
-  </div>;
+  return <>
+    <Breadcrumb crumbs={crumbs} />
+    <section>
+      {isLoading ? <Spinner /> : null}
+      {device ? <DeviceForm
+        initialValues={{
+          system_name: device.system_name,
+          type: device.type,
+          hdd_capacity: device.hdd_capacity
+        }}
+        onSubmit={onSubmit}
+      /> : null}
+    </section>
+  </>;
 }
 
 export default DeviceUpdate;
