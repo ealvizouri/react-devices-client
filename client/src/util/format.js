@@ -1,0 +1,1 @@
+export const commaSeparated = (value) => Intl.NumberFormat('en-US').format(value);

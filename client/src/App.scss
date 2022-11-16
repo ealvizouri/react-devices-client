@@ -1,5 +1,46 @@
+@use 'sass:color';
 @import 'reset';
 
-.App {
-  text-align: center;
+@mixin defineColor($name, $hex, $amount) {
+  --color-#{$name}: #{$hex};
+  --color-#{$name}-darker: #{darken($hex, $amount)};
+}
+$darkenAmount: 20%;
+:root {
+  @include defineColor(clean, #FFF, $darkenAmount);
+  @include defineColor(primary, #3BA1C4, $darkenAmount);
+  @include defineColor(secondary, #8C8C8C, $darkenAmount);
+  @include defineColor(success, #89C664, $darkenAmount);
+  @include defineColor(danger, #DD3900, $darkenAmount);
+  @include defineColor(warning, #F3AF33, $darkenAmount);
+  @include defineColor(info, #25677D, $darkenAmount);
+  @include defineColor(text-primary, #2F2F2F, $darkenAmount);
+  @include defineColor(text-secondary, #535353, $darkenAmount);
+  @include defineColor(overlay, #2F2F2F1F, $darkenAmount);
+  --breakpoint-md: 600px;
+  --breakpoint-lg: 1200px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
