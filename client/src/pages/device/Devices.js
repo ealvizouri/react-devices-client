@@ -52,12 +52,14 @@ const Devices = () => {
   return (
     <div className="devices">
       <Dropdown
+        id="device-filter-by"
         label="Device type"
         selected={filterBy}
         items={deviceTypes}
         click={(item) => setFilterBy(item)}
       />
       <Dropdown
+        id="device-order-by"
         label="Order By"
         selected={sortBy}
         items={sortFilters}

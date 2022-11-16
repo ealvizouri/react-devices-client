@@ -3,6 +3,7 @@ import DropdownContainer from './DropdownContainer';
 import Button from '../Button';
 
 const Dropdown = ({
+  id,
   label,
   items,
   selected,
@@ -13,7 +14,7 @@ const Dropdown = ({
 
   useEffect(() => {
     const findClosest = (e) => {
-      const hasClosest = e.target.closest('div.dropdown') || e.target.closest('ul.dropdown-items');
+      const hasClosest = e.target.closest(`#${id}`) || e.target.closest('ul.dropdown-items');
       const isOpen = itemsRef.current.classList.contains('dropdown-items--open');
       if (!hasClosest && isOpen) {
         setOpen(false);
@@ -26,7 +27,7 @@ const Dropdown = ({
     }
   }, [itemsRef, open]);
 
-  return <DropdownContainer className="dropdown" ariarole="button" open={open} onClick={() => setOpen(state => !state)}>
+  return <DropdownContainer id={id} ariarole="button" open={open} onClick={() => setOpen(state => !state)}>
     <span>{label}: {selected.text}</span>
     <div className="arrow"></div>
     <ul ref={itemsRef} className={`dropdown-items dropdown-items--${open ? 'open' : 'closed'}`}>
