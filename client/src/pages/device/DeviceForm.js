@@ -25,9 +25,9 @@ const DeviceForm = ({
       >
         {props => {
           return <Form>
-          <Input label="System Name" type="text" name="system_name" />
-          <Select label="Type" type="text" name="type" options={deviceTypes} />
-          <InputNumber label="HDD Capacity" name="hdd_capacity" allowNegative={false} thousandSeparator="," />
+          <Input id="system_name" label="System Name" type="text" name="system_name" />
+          <Select id="type" label="Type" type="text" name="type" options={deviceTypes} />
+          <InputNumber id="hdd_capacity" label="HDD Capacity" name="hdd_capacity" allowNegative={false} thousandSeparator="," />
           <div className="buttons">
             <Button type="submit" disabled={!props.isValid || props.isValidating || !props.dirty}>Save</Button>
             <Button type="button" variant="danger" onClick={() => navigate('/')}>Cancel</Button>

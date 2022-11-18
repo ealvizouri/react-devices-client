@@ -58,6 +58,7 @@ const Devices = () => {
     }).catch(err => console.log(err));
   }, [deviceIdToRemove]);
   return (<section>
+    <Spinner />
     {isLoading ? <Spinner /> : null}
     <ModalConfirm
       id={`remove-modal-${deviceIdToRemove}`}

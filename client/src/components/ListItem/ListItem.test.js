@@ -1,15 +1,16 @@
 import { render, screen } from '@testing-library/react';
+import List from '../List';
 import ListItem from './ListItem';
 
-test('renders ListItem component', () => {
-  render(<ul>
+test('renders 2 ListItem components', () => {
+  render(<List>
     <ListItem>
       First Item
     </ListItem>
     <ListItem>
       Second Item
     </ListItem>
-  </ul>);
-  const firstItemText = screen.getByText(/First Item/i);
-  expect(firstItemText).not.toBeInTheDocument();
+  </List>);
+  expect(screen.getByText(/First Item/i)).toBeInTheDocument();
+  expect(screen.getByText(/Second Item/i)).toBeInTheDocument();
 });
