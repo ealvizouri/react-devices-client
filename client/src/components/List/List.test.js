@@ -10,6 +10,6 @@ test('renders List component', () => {
       Second Item
     </li>
   </List>);
-  const firstItemText = screen.getByText(/First Item/i);
-  expect(firstItemText).not.toBeInTheDocument();
+  expect(screen.getByText(/First Item/i)).toBeInTheDocument();
+  expect(screen.getByText(/Second Item/i)).toBeInTheDocument();
 });

@@ -5,10 +5,14 @@ import { useField } from 'formik';
 
 import FormItem from '../FormItem';
 
-const InputNumber = ({ label, name, ...props }) => {
+const InputNumber = ({ id, label, name, ...props }) => {
   const [field, meta, helpers] = useField(name);
-  return <FormItem label={label} error={meta.touched && meta.error ? meta.error : null}>
-      <NumericFormat {...field} {...props} />
+  return <FormItem
+    id={id}
+    label={label}
+    error={meta.touched && meta.error ? meta.error : null}
+  >
+    <NumericFormat id={id} aria-label={id} {...field} {...props} />
   </FormItem>;
 }
 

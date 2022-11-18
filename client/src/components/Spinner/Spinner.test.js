@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import Spinner from './Spinner';
 
-test('renders Spinner component', () => {
-  render(<Spinner />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).not.toBeInTheDocument();
+test('renders Spinner component',async () => {
+  const { container } = render(<Spinner />);
+  // Can't use screen.getByRole('img') because it has aria-hidden true, and is excluded for the query. https://testing-library.com/docs/queries/byrole#hidden
+  const svg = container.querySelector('svg');
+  expect(svg).toBeInTheDocument();
+  expect(svg.dataset.icon).toBe('spinner');
 });

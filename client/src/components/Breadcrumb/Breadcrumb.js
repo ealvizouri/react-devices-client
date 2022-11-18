@@ -6,11 +6,11 @@ import BreadcrumbContainer from './BreadcrumbContainer';
 const Breadcrumb = ({ crumbs }) => {
   return <BreadcrumbContainer>
     {crumbs.map(({to , text}) => {
-      if (to) return <>
+      if (to) return <div key={text}>
         <Link to={to}>{text}</Link>
         <FontAwesomeIcon size="2xs" icon={faAnglesRight} />
-      </>;
-      else return <span>{text}</span>
+      </div>;
+      else return <span key={text}>{text}</span>
     })}
   </BreadcrumbContainer>;
 }
