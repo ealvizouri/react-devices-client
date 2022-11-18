@@ -1,10 +1,10 @@
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import DeviceFormContainer from './DeviceFormContainer';
-import Input from '../../components/Input';
-import InputNumber from '../../components/InputNumber';
-import Select from '../../components/Select';
-import Button from '../../components/Button';
+import Input from '../../components/form/Input';
+import InputNumber from '../../components/form/InputNumber';
+import Select from '../../components/form/Select';
+import Button from '../../components/ui/Button';
 import { deviceTypes } from '../../api/Device';
 import deviceValidationSchema from './deviceValidationSchema';
 

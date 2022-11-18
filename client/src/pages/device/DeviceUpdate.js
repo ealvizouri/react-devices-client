@@ -2,8 +2,8 @@ import { useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useApi } from '../../api/useApi';
 import { updateDevice } from '../../api/Device';
-import Spinner from '../../components/Spinner';
-import Breadcrumb from '../../components/Breadcrumb';
+import Spinner from '../../components/ui/Spinner';
+import Breadcrumb from '../../components/ui/Breadcrumb';
 import DeviceForm from './DeviceForm';
 
 const DeviceUpdate = () => {

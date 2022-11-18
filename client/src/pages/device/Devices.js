@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons'
 import DevicesContainer from './DevicesContainer';
-import { ModalConfirm } from '../../components/Modal';
-import Spinner from '../../components/Spinner';
-import Button from '../../components/Button';
-import Dropdown from '../../components/Dropdown';
-import List from '../../components/List';
-import ListItem from '../../components/ListItem';
+import { ModalConfirm } from '../../components/ui/Modal';
+import Spinner from '../../components/ui/Spinner';
+import Button from '../../components/ui/Button';
+import Dropdown from '../../components/ui/Dropdown';
+import List from '../../components/ui/List';
+import ListItem from '../../components/ui/ListItem';
 import DeviceInfo from '../../components/DeviceInfo';
 import { deviceTypes, getDevices, deleteDevice } from '../../api/Device';
 
@@ -58,7 +58,6 @@ const Devices = () => {
     }).catch(err => console.log(err));
   }, [deviceIdToRemove]);
   return (<section>
-    <Spinner />
     {isLoading ? <Spinner /> : null}
     <ModalConfirm
       id={`remove-modal-${deviceIdToRemove}`}
