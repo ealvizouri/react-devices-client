@@ -11,6 +11,7 @@ const DeviceCreate = () => {
   const navigate = useNavigate();
   const onSubmit = useCallback((values) => {
     setIsLoading(true);
+    values.hdd_capacity = values.hdd_capacity.replaceAll(',', '');
     createDevice(values)
       .then(() => {
         setIsLoading(false);
