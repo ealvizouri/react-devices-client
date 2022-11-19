@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import { Formik, Form } from 'formik';
 import InputNumber from './InputNumber';
-import { commaSeparated } from '../../util/format';
+import { commaSeparated } from '../../../util/format';
 
 const UserForm = ({ handleSubmit }) => {
   return <Formik

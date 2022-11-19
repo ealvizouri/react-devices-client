@@ -2,7 +2,7 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import { Formik, Form } from 'formik';
 import Select from './Select';
-import { deviceTypes } from '../../api/Device';
+import { deviceTypes } from '../../../api/Device';
 
 const UserForm = ({ initialValues, handleSubmit }) => {
   return <Formik

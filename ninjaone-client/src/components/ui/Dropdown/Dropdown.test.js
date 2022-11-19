@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Dropdown from './Dropdown';
-import { deviceTypes } from '../../api/Device';
+import { deviceTypes } from '../../../api/Device';
 
 describe('Dropdown component', () => {
   test('renders Dropdown component', async () => {
@@ -18,6 +18,7 @@ describe('Dropdown component', () => {
   });
 
   test('it selects an item', async () => {
+    const id = 'dropdown-test';
     let selected = deviceTypes[0];
     const lastDeviceType = deviceTypes[deviceTypes.length - 1].text;
     const onClick = (item) => selected = item;
@@ -31,7 +32,7 @@ describe('Dropdown component', () => {
     const button = await screen.findByText('All');
     userEvent.click(button);
 
-    const dropdownItems = await screen.findByTestId('dropdown-items');
+    const dropdownItems = await screen.findByTestId(`dropdown-items-${id}`);
     expect(dropdownItems).toHaveClass('dropdown-items--open');
 
     const dropdownItem = await screen.findByText(lastDeviceType);
@@ -42,14 +43,14 @@ describe('Dropdown component', () => {
     expect(selected.text).toBe(lastDeviceType);
 
     rerender(<Dropdown
-      id="dropdown-test"
+      id={id}
       label="Device type"
       selected={selected}
       items={deviceTypes}
       click={onClick}
     />);
 
-    const dropdownCurrent = await screen.findByTestId('dropdown-current');
+    const dropdownCurrent = await screen.findByTestId(`dropdown-current-${id}`);
     expect(dropdownCurrent).toBeInTheDocument();
     expect(dropdownCurrent.textContent).toContain(lastDeviceType);
   });

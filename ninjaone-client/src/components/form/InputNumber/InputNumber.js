@@ -6,7 +6,7 @@ import { useField } from 'formik';
 import FormItem from '../FormItem';
 
 const InputNumber = ({ id, label, name, ...props }) => {
-  const [field, meta, helpers] = useField(name);
+  const [field, meta] = useField(name);
   return <FormItem
     id={id}
     label={label}

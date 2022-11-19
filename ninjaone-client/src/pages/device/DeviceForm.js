@@ -15,10 +15,11 @@ const DeviceForm = ({
   const navigate = useNavigate();
   return <DeviceFormContainer>
       <Formik
-        initialValues={initialValues ?? {
+        initialValues={{
           system_name: '',
           type: '',
-          hdd_capacity: ''
+          hdd_capacity: '',
+          ...initialValues
         }}
         onSubmit={onSubmit}
         validationSchema={deviceValidationSchema}
@@ -29,7 +30,7 @@ const DeviceForm = ({
           <Select id="type" label="Type" type="text" name="type" options={deviceTypes} />
           <InputNumber id="hdd_capacity" label="HDD Capacity" name="hdd_capacity" allowNegative={false} thousandSeparator="," />
           <div className="buttons">
-            <Button type="submit" disabled={!props.isValid || props.isValidating || !props.dirty}>Save</Button>
+            <Button type="submit" disabled={!props.isValid || !props.dirty}>Save</Button>
             <Button type="button" variant="danger" onClick={() => navigate('/')}>Cancel</Button>
           </div>
         </Form>
