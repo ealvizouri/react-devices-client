@@ -34,7 +34,7 @@ const Dropdown = ({
     <div className="arrow"></div>
     <ul ref={itemsRef} data-testid={`dropdown-items-${id}`} className={`dropdown-items dropdown-items--${open ? 'open' : 'closed'}`}>
       {items.filter(item => selected.value !== item.value).map(item => <li key={item.value}>
-        <Button variant="clean" onClick={() => click(item)}>{item.text}</Button>
+        <Button variant="clean" onClick={() => click(item)} data-testid={`dropdown-item-${item.value}`}>{item.text}</Button>
       </li>)}
     </ul>
   </DropdownContainer>;
