@@ -1,6 +1,5 @@
 import React from 'react';
 import { useField } from 'formik';
-
 import FormItem from '../FormItem';
 
 const Input = ({ id, label, ...props }) => {
@@ -10,7 +9,7 @@ const Input = ({ id, label, ...props }) => {
     label={label}
     error={meta.touched && meta.error ? meta.error : null}
   >
-      <input id={id} aria-label={id} {...field} {...props} />
+    <input id={id} aria-label={id} {...field} {...props} />
   </FormItem>;
 }
 
