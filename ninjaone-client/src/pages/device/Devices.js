@@ -91,15 +91,16 @@ const Devices = () => {
             click={(item) => setSortBy(item)}
           />
         </div>
-        <Button variant="success" onClick={() => navigate('/device')}>
+        <Button id="new-device" variant="success" onClick={() => navigate('/device')}>
           <span>New</span>
           <FontAwesomeIcon icon={faPlus} />
         </Button>
       </div>
 
-      <List>
+      <List id="list-devices">
         {filteredDevices.map(item => <ListItem
           key={item.id}
+          label={item.system_name}
           actions={[{
               action: 'edit',
               icon: <FontAwesomeIcon icon={faPencil} />,
