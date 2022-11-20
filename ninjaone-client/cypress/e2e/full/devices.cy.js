@@ -1,17 +1,5 @@
 /// <reference types="cypress" />
 import { deviceTypes } from '../../../src/api/Device';
-// import { nockDevicesResponse } from '../../../src/nock/nockReplies';
-
-// Welcome to Cypress!
-//
-// This spec file contains a variety of sample tests
-// for a todo list app that are designed to demonstrate
-// the power of writing tests in Cypress.
-//
-// To learn more about how Cypress works and
-// what makes it such an awesome testing tool,
-// please read our getting started guide:
-// https://on.cypress.io/introduction-to-cypress
 
 const randomWord = (length) => {
   let result = '';
@@ -27,19 +15,8 @@ const lastDeviceIndex = deviceTypes.length - 1;
 const randomSystemName = `${randomWord(6)}-${randomWord(8)}`;
 
 describe('Testing home page', () => {
-  beforeEach(() => {
-    // Cypress starts out with a blank slate for each test
-    // so we must tell it to visit our website with the `cy.visit()` command.
-    // Since we want to visit the same URL at the start of all our tests,
-    // we include it in our beforeEach function so that it runs before each test
-    // cy.visit('http://localhost:3001/');
-  })
-
   it(`Opens dropdown and finds ${lastDeviceIndex} list items` , () => {
-    cy.visit('http://localhost:3001/');
-    // We use the `cy.get()` command to get all elements that match the selector.
-    // Then, we use `should` to assert that there are two matched items,
-    // which are the two default items.
+    cy.visit(cy.config().baseUrl);
     cy.get('#device-filter-by').click();
     cy.get('#device-filter-by ul.dropdown-items li')
       .should('have.length', lastDeviceIndex)
@@ -56,17 +33,17 @@ describe('Testing home page', () => {
   it('Goes to /device and hits cancel, then goes back to /', () => {
     cy.get('button#new-device')
       .click();
-    cy.url().should('include','/device');
+    cy.url().should('eq', cy.config().baseUrl + 'device');
     cy.get('.buttons button:last-child')
       .click();
-    cy.url().should('include','/');
+    cy.url().should('eq', cy.config().baseUrl);
   });
 
   it('Tests new device form', () => {
     cy.get('button#new-device')
       .click();
 
-    cy.url().should('include','/device');
+    cy.url().should('eq', cy.config().baseUrl + 'device');
 
     cy.get('input[name="system_name"]')
       .focus()
@@ -133,7 +110,7 @@ describe('Testing home page', () => {
     cy.get('.buttons button[type=submit]')
       .click();
 
-    cy.url().should('include','/');
+    cy.url().should('eq', cy.config().baseUrl);
 
     cy.get(`li[aria-label="${randomSystemName}"]`)
       .should('exist');
@@ -143,7 +120,7 @@ describe('Testing home page', () => {
     cy.get(`li[aria-label="${randomSystemName}"] .list-item__actions button:first-child`)
       .click();
 
-    cy.url().should('include','/device/');
+    cy.url().should('match', new RegExp(`${cy.config().baseUrl}device/[a-z0-9]`, 'i'));
 
     cy.get('input[name="hdd_capacity"]')
       .clear()
@@ -153,13 +130,13 @@ describe('Testing home page', () => {
       cy.get('.buttons button[type=submit]')
       .click();
 
-      cy.url().should('include','/');
+      cy.url().should('eq', cy.config().baseUrl);
 
       cy.get(`li[aria-label="${randomSystemName}"]`)
         .should('exist');
   });
 
-  it('Deletes a device', () => {
+  it('Opens a modal by clicking on delete icon, then cancels it', () => {
     cy.get(`li[aria-label="${randomSystemName}"] .list-item__actions button[data-modal-button]`)
       .click();
 
@@ -171,8 +148,22 @@ describe('Testing home page', () => {
     
     cy.get('.modal')
       .should('not.exist');
+  });
 
-    // cy.get('.modal .buttons button:first-child')
-    //   .click();
+  it('Opens a modal by clicking on delete icon, then clicks on confirm button', () => {
+    cy.get(`li[aria-label="${randomSystemName}"] .list-item__actions button[data-modal-button]`)
+      .click();
+
+    cy.get('.modal')
+      .should('exist');
+    
+    cy.get('.modal .buttons button:first-child')
+      .click();
+    
+    cy.get('.modal')
+      .should('not.exist');
+
+    cy.get(`li[aria-label="${randomSystemName}"]`)
+      .should('not.exist');
   });
 })
