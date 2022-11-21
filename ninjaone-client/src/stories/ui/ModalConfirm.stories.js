@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../../App.scss';
-import { ModalBase } from '../../components/ui/Modal';
+import { ModalConfirm } from '../../components/ui/Modal';
 import Container from '../Container';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'UI/ModalBase',
-  component: ModalBase,
+  title: 'UI/ModalConfirm',
+  component: ModalConfirm,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     id: {
@@ -45,8 +45,15 @@ export default {
         required: false
       }
     },
-    close: {
-      name: 'close',
+    onConfirm: {
+      name: 'onConfirm',
+      type: {
+        name: 'function',
+        required: true
+      }
+    },
+    onCancel: {
+      name: 'onCancel',
       type: {
         name: 'function',
         required: true
@@ -55,23 +62,18 @@ export default {
   },
 };
 
-const ModalContent = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Template = (args) => <Container>
-    <ModalBase {...args} />
+    <ModalConfirm {...args} />
 </Container>;
 
 export const Default = Template.bind({});
 
 Default.args = {
-  id: 'modal-base',
+  id: 'modal-confirm',
   open: true,
-  close: (item) => console.log(item),
-  children: 'React Node or just text',
+  size: 'sm',
+  onConfirm: () => console.log('onConfirm'),
+  onCancel: () => console.log('onCancel'),
+  children: 'Confirm this action',
   sizeExact: null
 };
