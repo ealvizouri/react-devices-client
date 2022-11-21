@@ -161,6 +161,6 @@ You should see a new browser's window pop up. Select <strong>devices.cy.js</stro
 [LinkedIn - Mariano Alvizouri](https://www.linkedin.com/in/mariano-alvizouri/)
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Ryan who's been so patience and energetic!
+- Adrian Ulloa who's been so patience and energetic!
 - RangerTech
 - ninjaOne
