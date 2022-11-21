@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import DeviceFormContainer from './DeviceFormContainer';
-import Input from '../../components/form/Input';
-import InputNumber from '../../components/form/InputNumber';
-import Select from '../../components/form/Select';
-import Button from '../../components/ui/Button';
-import { deviceTypes } from '../../api/Device';
+import Input from '../../../components/form/Input';
+import InputNumber from '../../../components/form/InputNumber';
+import Select from '../../../components/form/Select';
+import Button from '../../../components/ui/Button';
+import { deviceTypes } from '../../../api/Device';
 import deviceValidationSchema from './deviceValidationSchema';
 
 const DeviceForm = ({

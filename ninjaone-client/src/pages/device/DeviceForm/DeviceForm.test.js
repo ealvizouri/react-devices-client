@@ -2,7 +2,7 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {BrowserRouter} from 'react-router-dom';
 import { deviceTypes } from '../../../api/Device';
-import DeviceForm from '../DeviceForm';
+import DeviceForm from './DeviceForm';
 
 test('renders DeviceForm component', async () => {
   const firstType = deviceTypes.find(item => item.value === 'ALL').value;

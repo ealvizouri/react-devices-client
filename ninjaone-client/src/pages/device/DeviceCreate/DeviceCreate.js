@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createDevice } from '../../api/Device';
-import Breadcrumb from '../../components/ui/Breadcrumb';
-import Spinner from '../../components/ui/Spinner';
-import DeviceForm from './DeviceForm';
+import { createDevice } from '../../../api/Device';
+import Breadcrumb from '../../../components/ui/Breadcrumb';
+import Spinner from '../../../components/ui/Spinner';
+import DeviceForm from '../DeviceForm';
 
 const DeviceCreate = () => {
   const [isLoading, setIsLoading] = useState(false);

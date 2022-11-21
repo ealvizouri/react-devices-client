@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useFecth from '../../api/useFetch';
-import { updateDevice } from '../../api/Device';
-import Spinner from '../../components/ui/Spinner';
-import Breadcrumb from '../../components/ui/Breadcrumb';
-import DeviceForm from './DeviceForm';
+import useFecth from '../../../api/useFetch';
+import { updateDevice } from '../../../api/Device';
+import Spinner from '../../../components/ui/Spinner';
+import Breadcrumb from '../../../components/ui/Breadcrumb';
+import DeviceForm from '../DeviceForm';
 
 const DeviceUpdate = () => {
   const [isLoading, setIsLoading] = useState(false);

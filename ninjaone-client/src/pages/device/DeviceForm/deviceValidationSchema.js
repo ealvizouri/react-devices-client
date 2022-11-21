@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { deviceTypes } from '../../api/Device';
+import { deviceTypes } from '../../../api/Device';
 
 const allowedDeviceTypes = deviceTypes.filter(item => item.value !== 'ALL');
 const deviceValidationSchema = Yup.object().shape({
