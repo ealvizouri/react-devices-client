@@ -22,6 +22,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [How to use](#how_to_use)
+- [Running Storybook](#storybook)
 - [Unit Testing](#unit_testing)
 - [End-to-End Testing](#e2e_testing)
 - [Authors](#authors)
@@ -122,6 +123,24 @@ When you start the client, you should see the home page with a list of devices. 
 ### When deleting a device you should see a confirmation pop up
 <img src="https://i.imgur.com/nJeT6Hp.png" />
 
+## Running Storybook <a name = "storybook"></a>
+Storybook is a tool for documenting the project's ui components.
+
+Open a new terminal window/tab. From the root's directory folder, go to the ninjaone-client folder
+
+```
+cd ninjaone-client
+```
+Then
+
+```
+npm run storybook
+```
+You can open <a href="http://localhost:6006/?path=/story/introduction--page">http://localhost:6006/?path=/story/introduction--page</a> and see the introduction page
+
+<img src="https://i.imgur.com/QueVocz.png" />
+
+
 ## 🔧 Running Unit Testing <a name = "unit_testing"></a>
 
 Open a new terminal window/tab. From the root's directory folder, go to the ninjaone-client folder
@@ -139,6 +158,8 @@ You should see something like this
 <img src="https://i.imgur.com/Gbes3xT.png" />
 
 ## 🔧 Running End-to-End Testing <a name = "e2e_testing"></a>
+
+`NOTE: Make sure the server is running before running this test.`
 
 Open a new terminal window/tab. From the root's directory folder, go to the ninjaone-client folder
 
@@ -158,7 +179,7 @@ Then select your preferred browser. Then click on <strong>Start E2E Testing in [
 <img src="https://i.imgur.com/rKZDjfd.png" />
 
 You should see a new browser's window pop up. Select <strong>devices.cy.js</strong>
-<img src="https://i.imgur.com/cr1FwgH.png" />
+<img src="https://i.imgur.com/Ek6ED65.png" />
 
 ## ✍️ Authors <a name = "authors"></a>
 [LinkedIn - Mariano Alvizouri](https://www.linkedin.com/in/mariano-alvizouri/)
