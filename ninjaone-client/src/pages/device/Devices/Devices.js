@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import cloneDeep from 'lodash.clonedeep';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons'
 import DevicesContainer from './DevicesContainer';
@@ -14,9 +15,27 @@ import { deviceTypes, getDevices, deleteDevice } from '../../../api/Device';
 import useFetch from '../../../api/useFetch';
 
 const sortFilters = [
-  { text: 'System Name', value: 'system_name'},
-  { text: 'HDD Capacity', value: 'hdd_capacity'}
-]
+  {
+    text: 'System Name',
+    value: 'system_name',
+    sort: function(a, b) {
+      const value = 'system_name';
+      if (a[value] === b[value]) return 0;
+      return a[value] > b[value] ? 1 : -1;
+    }
+  },
+  {
+    text: 'HDD Capacity',
+    value: 'hdd_capacity',
+    sort: function(a, b) {
+      const value = 'hdd_capacity';
+      const aInt = parseInt(a[value]);
+      const bInt = parseInt(b[value]);
+      if (aInt === bInt) return 0;
+      return aInt > bInt ? 1 : -1;
+    }
+  }
+];
 
 const Devices = () => {
   const navigate = useNavigate();
@@ -28,12 +47,9 @@ const Devices = () => {
   const [filteredDevices, setFilteredDevices] = useState([]);
 
   useEffect(() => {
-    let _filteredDevices = filterBy.value !== 'ALL' ? devices.filter(item => item.type === filterBy.value) : devices;
+    let _filteredDevices = filterBy.value !== 'ALL' ? devices.filter(item => item.type === filterBy.value) : cloneDeep(devices);
     if (_filteredDevices) {
-      _filteredDevices.sort((a, b) => {
-        if (a[sortBy.value] === b[sortBy.value]) return 0;
-        return a[sortBy.value] > b[sortBy.value] ? 1 : -1;
-      });
+      _filteredDevices.sort(sortBy.sort);
       setFilteredDevices(_filteredDevices);
     }
   }, [filterBy, sortBy, devices]);
