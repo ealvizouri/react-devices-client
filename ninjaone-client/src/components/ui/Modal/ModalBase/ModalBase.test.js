@@ -1,23 +1,23 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Modal from './Modal';
+import ModalBase from './ModalBase';
 
 const CustomModal = ({ open, onClose }) => (<>
   <button data-testid="outside-modal">Outside modal</button>
-  <Modal
+  <ModalBase
     id="test-modal"
     open={open}
     close={onClose}
   >
     <span>Modal content</span>
-  </Modal>
+  </ModalBase>
 </>);
 
-test('renders Modal component, opens it and closes it', async () => {
+test('renders ModalBase component, opens it and closes it', async () => {
   let open = false;
   const onClose = () => open = false;
   const { rerender } = render(<CustomModal open={open} onClose={onClose} />);
-  // Modal is closed
+  // ModalBase is closed
   let modalContent = screen.queryByText(/modal content/i);
   expect(modalContent).not.toBeInTheDocument();
   // Now it opens it

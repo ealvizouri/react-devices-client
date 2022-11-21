@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Breadcrumb from './Breadcrumb';
 
 test('renders Breadcrumb component', () => {

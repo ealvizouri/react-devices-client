@@ -5,12 +5,11 @@ import BreadcrumbContainer from './BreadcrumbContainer';
 
 const Breadcrumb = ({ crumbs }) => {
   return <BreadcrumbContainer>
-    {crumbs.map(({to , text}) => {
-      if (to) return <div key={text}>
-        <Link to={to}>{text}</Link>
-        <FontAwesomeIcon size="2xs" icon={faAnglesRight} />
+    {crumbs.map(({to , text}, index) => {
+      return <div key={text}>
+        {index > 0 ? <FontAwesomeIcon size="2xs" icon={faAnglesRight} /> : null}
+        {to ? <Link to={to}>{text}</Link> : <span>{text}</span>}
       </div>;
-      else return <span key={text}>{text}</span>
     })}
   </BreadcrumbContainer>;
 }

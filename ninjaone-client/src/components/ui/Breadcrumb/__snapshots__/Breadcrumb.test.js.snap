@@ -2,7 +2,7 @@
 
 exports[`renders Breadcrumb component 1`] = `
 <div
-  className="sc-bcXHqe kpzvnF"
+  className="sc-bcXHqe bJyIXQ"
 >
   <div>
     <a
@@ -11,6 +11,8 @@ exports[`renders Breadcrumb component 1`] = `
     >
       Home
     </a>
+  </div>
+  <div>
     <svg
       aria-hidden="true"
       className="svg-inline--fa fa-angles-right fa-2xs "
@@ -28,14 +30,14 @@ exports[`renders Breadcrumb component 1`] = `
         style={Object {}}
       />
     </svg>
-  </div>
-  <div>
     <a
       href="/section"
       onClick={[Function]}
     >
       Section
     </a>
+  </div>
+  <div>
     <svg
       aria-hidden="true"
       className="svg-inline--fa fa-angles-right fa-2xs "
@@ -53,14 +55,14 @@ exports[`renders Breadcrumb component 1`] = `
         style={Object {}}
       />
     </svg>
-  </div>
-  <div>
     <a
       href="/section/sub-section"
       onClick={[Function]}
     >
       Sub-Section
     </a>
+  </div>
+  <div>
     <svg
       aria-hidden="true"
       className="svg-inline--fa fa-angles-right fa-2xs "
@@ -78,9 +80,9 @@ exports[`renders Breadcrumb component 1`] = `
         style={Object {}}
       />
     </svg>
+    <span>
+      Current sub-sub-section
+    </span>
   </div>
-  <span>
-    Current sub-sub-section
-  </span>
 </div>
 `;
