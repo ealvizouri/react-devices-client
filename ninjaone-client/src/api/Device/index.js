@@ -1,4 +1,4 @@
-import { _fetch } from '../useApi';
+import { _fetch } from '../useFetch';
 
 export const deviceTypes = [
   { text: 'All', value: 'ALL'},

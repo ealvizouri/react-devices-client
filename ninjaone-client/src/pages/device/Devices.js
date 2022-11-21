@@ -11,6 +11,7 @@ import List from '../../components/ui/List';
 import ListItem from '../../components/ui/ListItem';
 import DeviceInfo from '../../components/DeviceInfo';
 import { deviceTypes, getDevices, deleteDevice } from '../../api/Device';
+import useFetch from '../../api/useFetch';
 
 const sortFilters = [
   { text: 'System Name', value: 'system_name'},
@@ -19,36 +20,29 @@ const sortFilters = [
 
 const Devices = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
+  const [refresh, setRefresh] = useState(0);
+  const { data: devices, loading } = useFetch(`devices?r=${refresh}`);
   const [deviceIdToRemove, setDeviceIdToRemove] = useState(null);
-  const [devices, setDevices] = useState([]);
   const [filterBy, setFilterBy] = useState(deviceTypes[0]);
   const [sortBy, setSortBy] = useState(sortFilters[0]);
   const [filteredDevices, setFilteredDevices] = useState([]);
 
   useEffect(() => {
-    getDevices()
-      .then(res => {
-        setDevices(res);
-        setIsLoading(false);
-      })
-      .catch(err => console.log(err));
-  }, []);
-
-  useEffect(() => {
     let _filteredDevices = filterBy.value !== 'ALL' ? devices.filter(item => item.type === filterBy.value) : devices;
-    _filteredDevices.sort((a, b) => {
-      if (a[sortBy.value] === b[sortBy.value]) return 0;
-      return a[sortBy.value] > b[sortBy.value] ? 1 : -1;
-    });
-    setFilteredDevices(_filteredDevices);
+    if (_filteredDevices) {
+      _filteredDevices.sort((a, b) => {
+        if (a[sortBy.value] === b[sortBy.value]) return 0;
+        return a[sortBy.value] > b[sortBy.value] ? 1 : -1;
+      });
+      setFilteredDevices(_filteredDevices);
+    }
   }, [filterBy, sortBy, devices]);
 
   const removeDevice = useCallback(() => {
     deleteDevice(deviceIdToRemove).then(data => {
       getDevices()
         .then(res => {
-          setDevices(res)
+          setRefresh(r => r + 1);
           setDeviceIdToRemove(null);
         })
         .catch(err => {
@@ -58,7 +52,7 @@ const Devices = () => {
     }).catch(err => console.log(err));
   }, [deviceIdToRemove]);
   return (<section>
-    {isLoading ? <Spinner /> : null}
+    {loading ? <Spinner /> : null}
     <ModalConfirm
       id={`remove-modal-${deviceIdToRemove}`}
       open={deviceIdToRemove !== null}
