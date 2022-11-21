@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useApi } from '../../api/useApi';
+import useFecth from '../../api/useFetch';
 import { updateDevice } from '../../api/Device';
 import Spinner from '../../components/ui/Spinner';
 import Breadcrumb from '../../components/ui/Breadcrumb';
@@ -10,7 +10,7 @@ const DeviceUpdate = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const [device] = useApi(`devices/${id}`, (o) => o, null);
+  const { data: device, loading: deviceLoading } = useFecth(`devices/${id}`);
   const crumbs = [
     {
       to: '/',
@@ -38,7 +38,7 @@ const DeviceUpdate = () => {
   return <>
     <Breadcrumb crumbs={crumbs} />
     <section>
-      {isLoading ? <Spinner /> : null}
+      {isLoading || deviceLoading ? <Spinner /> : null}
       {device ? <DeviceForm
         initialValues={{
           system_name: device.system_name,
