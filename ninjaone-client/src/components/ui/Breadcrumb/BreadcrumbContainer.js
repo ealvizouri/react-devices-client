@@ -7,15 +7,22 @@ const BreadcrumbContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  a {
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-  a:not(:last-child), svg {
-    margin-right: 10px;
-  }
-  span {
-    font-weight: bold;
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      margin: 0 10px;
+    }
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    span {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
   }
 `;
 

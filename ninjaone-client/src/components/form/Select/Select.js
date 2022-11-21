@@ -1,10 +1,14 @@
 import { useField } from 'formik';
-
 import FormItem from '../FormItem';
 
-const Select = ({ id, label, options, ...props }) => {
+const Select = ({ id, label, options, required, ...props }) => {
   const [field, meta] = useField(props);
-  return <FormItem id={id} label={label} error={meta.touched && meta.error ? meta.error : null}>
+  return <FormItem
+    id={id}
+    label={label}
+    error={meta.touched && meta.error ? meta.error : null}
+    required={required}
+  >
     <select
       id={id}
       aria-label={id}

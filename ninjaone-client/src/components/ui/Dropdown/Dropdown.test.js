@@ -9,7 +9,7 @@ describe('Dropdown component', () => {
     render(<Dropdown
       id="dropdown-test"
       label="Device type"
-      selected={selected}
+      defaultValue={selected}
       items={deviceTypes}
       click={(item) => selected = item}
     />);
@@ -25,7 +25,7 @@ describe('Dropdown component', () => {
     const { rerender } = render(<Dropdown
       id="dropdown-test"
       label="Device type"
-      selected={selected}
+      defaultValue={selected}
       items={deviceTypes}
       click={onClick}
     />);
@@ -45,7 +45,7 @@ describe('Dropdown component', () => {
     rerender(<Dropdown
       id={id}
       label="Device type"
-      selected={selected}
+      defaultValue={selected}
       items={deviceTypes}
       click={onClick}
     />);

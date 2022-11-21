@@ -79,14 +79,14 @@ const Devices = () => {
           <Dropdown
             id="device-filter-by"
             label="Device type"
-            selected={filterBy}
+            defaultValue={filterBy}
             items={deviceTypes}
             click={(item) => setFilterBy(item)}
           />
           <Dropdown
             id="device-order-by"
             label="Order By"
-            selected={sortBy}
+            defaultValue={sortBy}
             items={sortFilters}
             click={(item) => setSortBy(item)}
           />

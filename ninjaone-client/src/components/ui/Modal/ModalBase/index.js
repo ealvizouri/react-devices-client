@@ -1,2 +1,2 @@
-import Modal from './Modal';
-export default Modal;
+import ModalBase from './ModalBase';
+export default ModalBase;
