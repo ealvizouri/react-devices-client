@@ -44,6 +44,8 @@ This project was built ⛏️ with:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+`NOTE: All the commands are only consider to run under macOs or Linux.`
+
 ### Prerequisites
 
 First of all, you need to have NodeJS installed at least v14.18.1 or more. You can check your version with:
@@ -88,7 +90,7 @@ Then...
 npm start
 ```
 
-NOTE: the server runst at PORT 3000
+`NOTE: the server runs at PORT 3000`
 
 Then open another terminal window/tab. From the root's directory folder
 ```
@@ -96,9 +98,10 @@ cd ninjaone-client
 ```
 Then...
 ```
-npm start
+npm start // macOS os linux
+npm run start-pc // windows
 ```
-NOTE: npm start will start the server at port 3001.
+`NOTE: npm start will start the server at port 3001.`
 
 Visit <a href="http://localhost:3001">http://localhost:3001</a> to view this project
 

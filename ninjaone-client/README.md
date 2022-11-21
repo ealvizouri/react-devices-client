@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="" rel="noopener">
+    <img width=200px src="https://i.imgur.com/8HVFoox.png" alt="ninjaOne">
+  </a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/ealvizouri/react-devices-client)](https://github.com/ealvizouri/react-devices-client/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ealvizouri/react-devices-client)](https://github.com/ealvizouri/react-devices-client/pulls)
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2 align="center">ninjaOne | Devices</h2>
+<h3 align="center">by Mariano Alvizouri</h3>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📝 Table of Contents
 
-### `npm test`
+- [About](#about)
+- [Getting Started](#getting_started)
+- [How to use](#how_to_use)
+- [Unit Testing](#unit_testing)
+- [End-to-End Testing](#e2e_testing)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧐 About <a name = "about"></a>
 
-### `npm run build`
+This project was built ⛏️ with:
+  - react
+  - react-router-dom
+  - react-number-format
+  - styled-components
+  - formik
+  - yup
+  - storybook
+  - @testing-library
+  - cypress
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`NOTE: All the commands are only consider to run under macOs or Linux.`
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+First of all, you need to have NodeJS installed at least v14.18.1 or more. You can check your version with:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+node -v
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installing Client
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+From the root's directory folder
 
-## Learn More
+```
+cd ninjaone-client
+```
+Then...
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Running the project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+From the root's directory folder
+```
+cd ninjaone-client
+```
+Then...
+```
+npm start // macOS os linux
+npm run start-pc // windows
+```
+`NOTE: npm start will start the server at port 3001.`
 
-### Code Splitting
+Visit <a href="http://localhost:3001">http://localhost:3001</a> to view this project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🎈 How to use <a name="how_to_use"></a>
 
-### Analyzing the Bundle Size
+When you start the client, you should see the home page with a list of devices. The user can:
+  - filter by <strong>Device type</strong>
+  - order by <strong>System Name (a to z)</strong> and <strong>HDD Capacity (low to high)</strong>
+  - delete any device, using the <strong>red button with a white trash icon</strong>
+  - edit any device, using the <strong>blue button with a white pencil icon</strong>
+  - add a new device, using the <strong>green button (NEW +)</strong>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="https://i.imgur.com/pxnUNI6.png" />
 
-### Making a Progressive Web App
+### When adding or editing a device you should see something like this
+<img src="https://i.imgur.com/qi68Ue2.png" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### When deleting a device you should see a confirmation pop up
+<img src="https://i.imgur.com/nJeT6Hp.png" />
 
-### Advanced Configuration
+## 🔧 Running Unit Testing <a name = "unit_testing"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Open a new terminal window/tab. From the root's directory folder, go to the ninjaone-client folder
 
-### Deployment
+```
+cd ninjaone-client
+```
+Then
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+npm test
+```
 
-### `npm run build` fails to minify
+You should see something like this
+<img src="https://i.imgur.com/Gbes3xT.png" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔧 Running End-to-End Testing <a name = "e2e_testing"></a>
+
+Open a new terminal window/tab. From the root's directory folder, go to the ninjaone-client folder
+
+```
+cd ninjaone-client
+```
+Then
+```
+npx cypress open
+```
+You should see a new window pop up. Then select <strong>E2E Testing</strong>
+
+<img src="https://i.imgur.com/GqBN53d.png" />
+
+Then select your preferred browser. Then click on <strong>Start E2E Testing in [Browser Name]</strong>
+
+<img src="https://i.imgur.com/rKZDjfd.png" />
+
+You should see a new browser's window pop up. Select <strong>devices.cy.js</strong>
+<img src="https://i.imgur.com/cr1FwgH.png" />
+
+## ✍️ Authors <a name = "authors"></a>
+[LinkedIn - Mariano Alvizouri](https://www.linkedin.com/in/mariano-alvizouri/)
+
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+- Ryan who's been so patience and energetic!
+- RangerTech
+- ninjaOne
