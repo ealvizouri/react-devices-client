@@ -14,7 +14,7 @@ const randomWord = (length) => {
 const lastDeviceIndex = deviceTypes.length - 1;
 const randomSystemName = `${randomWord(6)}-${randomWord(8)}`;
 
-describe('Testing home page', () => {
+describe('Testing home page and device CRUD', () => {
   it(`Opens dropdown and finds ${lastDeviceIndex} list items` , () => {
     cy.visit(cy.config().baseUrl);
     cy.get('#device-filter-by').click();

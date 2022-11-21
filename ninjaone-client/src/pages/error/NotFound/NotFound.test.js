@@ -8,4 +8,3 @@ test('renders NotFound page component', () => {
   </BrowserRouter>);
   expect(screen.getByText("404")).toBeInTheDocument();
 });
-
