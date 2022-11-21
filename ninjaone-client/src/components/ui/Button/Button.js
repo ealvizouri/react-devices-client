@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -26,5 +27,20 @@ const Button = styled.button`
     ${({ variant = 'primary' }) => `background-color: var(--color-${variant}-darker`});
   }
 `;
+
+Button.propTypes = {
+  variant: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'clean',
+    'text-primary',
+    'text-secondary',
+    'overlay'
+  ])
+};
 
 export default Button;

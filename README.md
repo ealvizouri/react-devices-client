@@ -7,8 +7,8 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/ealvizouri/react-devices-client/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/ealvizouri/react-devices-client/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/ealvizouri/react-devices-client)](https://github.com/ealvizouri/react-devices-client/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ealvizouri/react-devices-client)](https://github.com/ealvizouri/react-devices-client/pulls)
 
 </div>
 
@@ -87,6 +87,9 @@ Then...
 ```
 npm start
 ```
+
+NOTE: the server runst at PORT 3000
+
 Then open another terminal window/tab. From the root's directory folder
 ```
 cd ninjaone-client
@@ -96,6 +99,8 @@ Then...
 npm start
 ```
 NOTE: npm start will start the server at port 3001.
+
+Visit <a href="http://localhost:3001">http://localhost:3001</a> to view this project
 
 ## 🎈 How to use <a name="how_to_use"></a>
 
@@ -126,6 +131,10 @@ Then
 ```
 npm test
 ```
+
+You should see something like this
+<img src="https://i.imgur.com/Gbes3xT.png" />
+
 ## 🔧 Running End-to-End Testing <a name = "e2e_testing"></a>
 
 Open a new terminal window/tab. From the root's directory folder, go to the ninjaone-client folder

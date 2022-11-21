@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ModalContainer = styled.div`
+const ModalBaseContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -54,4 +55,18 @@ const ModalContainer = styled.div`
   }
 `;
 
-export default ModalContainer;
+ModalBaseContainer.propTypes = {
+  open: PropTypes.bool,
+  size: PropTypes.oneOf([
+    'sm',
+    'md',
+    'lg'
+  ]),
+  sizeExact: PropTypes.shape({
+    sm: PropTypes.arrayOf(PropTypes.number),
+    md: PropTypes.arrayOf(PropTypes.number),
+    lg: PropTypes.arrayOf(PropTypes.number),
+  }),
+};
+
+export default ModalBaseContainer;
