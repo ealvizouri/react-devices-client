@@ -3,6 +3,7 @@ import FormItem from './FormItem';
 
 const setup = ({ label, error = null }) => {
   return <FormItem
+    id={label}
     label={label}
     error={error}
   >

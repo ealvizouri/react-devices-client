@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import SpinnerContainer from './SpinnerContainer';
@@ -14,6 +15,17 @@ const Spinner = ({variant = 'primary', ...props}) => {
   return <SpinnerContainer>
     <FontAwesomeIcon icon={faSpinner} color={colors[variant] ?? colors.clean} {...props} />
   </SpinnerContainer>;
+};
+
+Spinner.propTypes = {
+  variant: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info'
+  ])
 };
 
 export default Spinner;

@@ -4,10 +4,10 @@ import ListItem from './ListItem';
 
 test('renders 2 ListItem components', () => {
   render(<List>
-    <ListItem>
+    <ListItem label="first-item">
       First Item
     </ListItem>
-    <ListItem>
+    <ListItem label="second-item">
       Second Item
     </ListItem>
   </List>);

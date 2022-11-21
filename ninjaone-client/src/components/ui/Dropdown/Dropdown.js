@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import PropTypes from 'prop-types';
 import DropdownContainer from './DropdownContainer';
 import Button from '../Button';
 
@@ -45,5 +46,19 @@ const Dropdown = ({
     </ul>
   </DropdownContainer>;
 }
+
+Dropdown.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  defaultValue: PropTypes.shape({
+    text: PropTypes.string,
+    value: PropTypes.string
+  }).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string,
+    value: PropTypes.string
+  })).isRequired,
+  click: PropTypes.func.isRequired
+};
 
 export default Dropdown;

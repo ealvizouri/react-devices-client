@@ -1,5 +1,6 @@
 import React from 'react';
 import { useField } from 'formik';
+import PropTypes from 'prop-types';
 import FormItem from '../FormItem';
 
 const Input = ({ id, label, required, ...props }) => {
@@ -13,5 +14,12 @@ const Input = ({ id, label, required, ...props }) => {
     <input id={id} aria-label={id} {...field} {...props} />
   </FormItem>;
 }
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  required: PropTypes.bool
+};
 
 export default Input;

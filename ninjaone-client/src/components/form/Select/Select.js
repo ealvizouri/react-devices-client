@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useField } from 'formik';
 import FormItem from '../FormItem';
 
@@ -19,5 +20,19 @@ const Select = ({ id, label, options, required, ...props }) => {
     </select>
   </FormItem>
 }
+
+Select.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ])
+  })).isRequired,
+  required: PropTypes.bool
+};
 
 export default Select;

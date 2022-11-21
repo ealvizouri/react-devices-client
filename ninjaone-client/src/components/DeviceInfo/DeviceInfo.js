@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { format } from '../../util';
 import { deviceTypes } from '../../api/Device';
 import DeviceInfoContainer from './DeviceInfoContainer';
@@ -10,5 +11,14 @@ const DeviceInfo = ({ systemName, type, hddCapacity }) => {
     <p className="hdd-capacity">{format.commaSeparated(hddCapacity)} GB</p>
   </DeviceInfoContainer>;
 }
+
+DeviceInfo.propTypes = {
+  systemName: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  hddCapacity: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired
+};
 
 export default DeviceInfo;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ListItemContainer from './ListItemContainer';
 import Button from '../Button';
 
@@ -9,5 +10,19 @@ const ListItem = ({ id, label, actions = [], children }) => {
     </div>
   </ListItemContainer>;
 }
+
+ListItem.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    action: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+    onClick: PropTypes.func.isRequired
+  })),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
 
 export default ListItem;

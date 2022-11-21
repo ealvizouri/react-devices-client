@@ -1,5 +1,6 @@
-import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { Formik, Form } from 'formik';
 import DeviceFormContainer from './DeviceFormContainer';
 import Input from '../../components/form/Input';
 import InputNumber from '../../components/form/InputNumber';
@@ -37,6 +38,11 @@ const DeviceForm = ({
         }}
     </Formik>
   </DeviceFormContainer>;
+};
+
+DeviceForm.propTypes = {
+  initialValues: PropTypes.object,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default DeviceForm;
