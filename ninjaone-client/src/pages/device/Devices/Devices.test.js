@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {BrowserRouter} from 'react-router-dom';
 import { deviceTypes } from '../../../api/Device';
-import Devices from '../Devices';
+import Devices from './Devices';
 import { nockDevicesResponse } from '../../../nock/nockReplies';
 
 test('renders Devices component', async () => {

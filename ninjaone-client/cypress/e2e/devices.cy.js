@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { deviceTypes } from '../../../src/api/Device';
+import { deviceTypes } from '../../src/api/Device';
 
 const randomWord = (length) => {
   let result = '';

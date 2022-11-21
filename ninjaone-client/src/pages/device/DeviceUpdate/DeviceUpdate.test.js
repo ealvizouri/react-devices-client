@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
-import DeviceUpdate from '../DeviceUpdate';
+import DeviceUpdate from './DeviceUpdate';
 
 test('renders DeviceUpdate page component', async () => {
   render(<BrowserRouter>;

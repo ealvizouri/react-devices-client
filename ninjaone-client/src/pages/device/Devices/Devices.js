@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons'
 import DevicesContainer from './DevicesContainer';
-import { ModalConfirm } from '../../components/ui/Modal';
-import Spinner from '../../components/ui/Spinner';
-import Button from '../../components/ui/Button';
-import Dropdown from '../../components/ui/Dropdown';
-import List from '../../components/ui/List';
-import ListItem from '../../components/ui/ListItem';
-import DeviceInfo from '../../components/DeviceInfo';
-import { deviceTypes, getDevices, deleteDevice } from '../../api/Device';
-import useFetch from '../../api/useFetch';
+import { ModalConfirm } from '../../../components/ui/Modal';
+import Spinner from '../../../components/ui/Spinner';
+import Button from '../../../components/ui/Button';
+import Dropdown from '../../../components/ui/Dropdown';
+import List from '../../../components/ui/List';
+import ListItem from '../../../components/ui/ListItem';
+import DeviceInfo from '../../../components/DeviceInfo';
+import { deviceTypes, getDevices, deleteDevice } from '../../../api/Device';
+import useFetch from '../../../api/useFetch';
 
 const sortFilters = [
   { text: 'System Name', value: 'system_name'},

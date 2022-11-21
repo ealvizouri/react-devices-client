@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
-import DeviceCreate from '../DeviceCreate';
+import DeviceCreate from './DeviceCreate';
 
 test('renders DeviceCreate page component', () => {
   render(<BrowserRouter>;
