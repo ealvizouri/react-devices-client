@@ -9,12 +9,14 @@ export default {
   component: List,
 };
 
-const Template = (args) => <Container>
+const Template = (args) => (
+  <Container>
     <List {...args}>
       <li>This is just a UL element</li>
       <li>With a gray border</li>
     </List>
-</Container>;
+  </Container>
+);
 
 export const Default = Template.bind({});
 

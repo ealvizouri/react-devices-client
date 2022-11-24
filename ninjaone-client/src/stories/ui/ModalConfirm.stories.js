@@ -62,9 +62,11 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
+const Template = (args) => (
+  <Container>
     <ModalConfirm {...args} />
-</Container>;
+  </Container>
+);
 
 export const Default = Template.bind({});
 

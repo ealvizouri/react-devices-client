@@ -33,11 +33,13 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
-  <Formik initialValues={{ first_name: '' }} onSubmit={() => {}}>
-    <Input {...args} />
-  </Formik>
-</Container>;
+const Template = (args) => (
+  <Container>
+    <Formik initialValues={{ first_name: '' }} onSubmit={() => {}}>
+      <Input {...args} />
+    </Formik>
+  </Container>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

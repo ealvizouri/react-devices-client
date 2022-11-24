@@ -17,11 +17,13 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
-  <BrowserRouter>
-    <Breadcrumb {...args} />
-  </BrowserRouter>
-</Container>;
+const Template = (args) => (
+  <Container>
+    <BrowserRouter>
+      <Breadcrumb {...args} />
+    </BrowserRouter>
+  </Container>
+);
 
 export const Default = Template.bind({});
 

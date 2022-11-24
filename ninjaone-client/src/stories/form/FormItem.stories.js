@@ -29,11 +29,13 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
-  <FormItem {...args}>
-    <input name="example" />
-  </FormItem>
-</Container>;
+const Template = (args) => (
+  <Container>
+    <FormItem {...args}>
+      <input name="example" />
+    </FormItem>
+  </Container>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

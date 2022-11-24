@@ -55,16 +55,11 @@ export default {
   },
 };
 
-const ModalContent = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Template = (args) => <Container>
+const Template = (args) => (
+  <Container>
     <ModalBase {...args} />
-</Container>;
+  </Container>
+);
 
 export const Default = Template.bind({});
 
