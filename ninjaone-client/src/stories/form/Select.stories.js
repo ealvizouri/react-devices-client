@@ -37,11 +37,13 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
-  <Formik initialValues={{ options: '' }} onSubmit={() => {}}>
-    <Select {...args} />
-  </Formik>
-</Container>;
+const Template = (args) => (
+  <Container>
+    <Formik initialValues={{ options: '' }} onSubmit={() => {}}>
+      <Select {...args} />
+    </Formik>
+  </Container>
+);
 
 export const Default = Template.bind({});
 

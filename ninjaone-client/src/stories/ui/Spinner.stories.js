@@ -43,9 +43,11 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
+const Template = (args) => (
+  <Container>
     <Spinner {...args} />
-</Container>;
+  </Container>
+);
 
 export const Defualt = Template.bind({});
 

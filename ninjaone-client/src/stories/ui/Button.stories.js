@@ -36,9 +36,11 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
+const Template = (args) => (
+  <Container>
     <Button {...args} />
-</Container>;
+  </Container>
+);
 
 export const Default = Template.bind({});
 

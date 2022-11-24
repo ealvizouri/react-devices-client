@@ -60,7 +60,8 @@ const actionExplanation = `[{
   extraAttribute: 'it will be passed to the Button component'
 }]`;
 
-const Template = (args) => <Container>
+const Template = (args) => (
+  <Container>
     <ListItem {...args}>
       List Item content. It receives a children and an array of actions:
       <pre>{actionExplanation}</pre>
@@ -68,7 +69,8 @@ const Template = (args) => <Container>
         action, icon and onCLick are required
       </div>
     </ListItem>
-</Container>;
+  </Container>
+);
 
 export const Default = Template.bind({});
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useArgs } from '@storybook/client-api';
 import '../../App.scss';
 import Dropdown from '../../components/ui/Dropdown';
 import Container from '../Container';
@@ -33,7 +34,7 @@ export default {
     selected: {
       name: 'selected',
       type: {
-        name: 'object',
+        name: 'object | array',
         required: true
       },
     },
@@ -47,11 +48,24 @@ export default {
   },
 };
 
-const Template = (args) => <Container>
-    <Dropdown {...args} />
-</Container>;
+const Template = (args) => {
+  // eslint-disable-next-line no-unused-vars
+  const [_, updateArgs] = useArgs();
+  const onClick = (items) => updateArgs({ ...args, selected: items });
+
+  return (
+    <Container>
+      <Dropdown {...args} click={onClick} />
+    </Container>
+  );
+};
 
 const operatingSystems = [
+  {
+    text: 'All',
+    value: 'ALL',
+    isLabel: true
+  },
   {
     text: 'macOS Ventura',
     value: 'macos'
@@ -73,5 +87,13 @@ Default.args = {
   label: 'Operating System',
   items: operatingSystems,
   selected: operatingSystems[0],
-  click: (item) => { console.log(item) }
+};
+
+export const MultiSelect = Template.bind({});
+
+MultiSelect.args = {
+  id: 'operating_system',
+  label: 'Operating System',
+  items: operatingSystems,
+  selected: [operatingSystems[1], operatingSystems[2]],
 };
