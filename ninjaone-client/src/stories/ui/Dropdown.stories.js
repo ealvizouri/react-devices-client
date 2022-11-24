@@ -30,7 +30,7 @@ export default {
         required: true
       },
     },
-    defaultValue: {
+    selected: {
       name: 'selected',
       type: {
         name: 'object',
@@ -72,6 +72,6 @@ Default.args = {
   id: 'operating_system',
   label: 'Operating System',
   items: operatingSystems,
-  defaultValue: operatingSystems[0],
+  selected: operatingSystems[0],
   click: (item) => { console.log(item) }
 };
