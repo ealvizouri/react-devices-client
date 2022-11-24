@@ -2,9 +2,9 @@ import { render, screen } from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
 import NotFound from './NotFound';
 
-test('renders NotFound page component', () => {
+test('renders NotFound page component', async () => {
   render(<BrowserRouter>;
     <NotFound />
   </BrowserRouter>);
-  expect(screen.getByText("404")).toBeInTheDocument();
+  await screen.findByText("404");
 });

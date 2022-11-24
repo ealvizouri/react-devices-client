@@ -20,15 +20,12 @@ test('renders DeviceForm component', async () => {
       onSubmit={(data) => handleSubmit(data)}
     />
   </BrowserRouter>);
-  const inputSystemName = screen.getByLabelText('system_name');
-  expect(inputSystemName).toBeInTheDocument();
+  const inputSystemName = await screen.findByLabelText('system_name');
 
-  const selectType = screen.getByLabelText('type');
-  expect(selectType).toBeInTheDocument();
+  const selectType = await screen.findByLabelText('type');
   expect(selectType.value).toBe(firstType);
 
-  const inputHddCapacity = screen.getByLabelText('hdd_capacity');
-  expect(inputHddCapacity).toBeInTheDocument();
+  const inputHddCapacity = await screen.findByLabelText('hdd_capacity');
 
   // Update form data
   fireEvent.change(selectType, {
@@ -37,11 +34,11 @@ test('renders DeviceForm component', async () => {
   userEvent.type(inputSystemName, expectedSubmitValues.system_name);
   userEvent.type(inputHddCapacity, expectedSubmitValues.hdd_capacity.replace(',', ''));
 
-  await waitFor(() => {
-    expect(screen.getByDisplayValue(expectedSubmitValues.system_name)).toBeInTheDocument();
+  await waitFor(async () => {
+    await screen.findByDisplayValue(expectedSubmitValues.system_name)
   });
-  await waitFor(() => {
-    expect(screen.getByDisplayValue(expectedSubmitValues.hdd_capacity)).toBeInTheDocument();
+  await waitFor(async () => {
+    await screen.findByDisplayValue(expectedSubmitValues.hdd_capacity);
   });
   await waitFor(() => {
     expect(selectType.value).toBe(expectedSubmitValues.type);
@@ -54,8 +51,7 @@ test('renders DeviceForm component', async () => {
     }
   );
   
-  const saveButton = screen.getByRole('button', { name: /save/i });
-  expect(saveButton).toBeInTheDocument();
+  const saveButton = await screen.findByRole('button', { name: /save/i });
   userEvent.click(saveButton);
 
   await waitFor(() => {

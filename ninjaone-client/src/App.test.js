@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders app', () => {
+test('renders app', async () => {
   render(<App />);
-  const ninjaOneText = screen.getByText(/devices/i);
-  expect(ninjaOneText).toBeInTheDocument();
+  await screen.findByText(/devices/i);
 });

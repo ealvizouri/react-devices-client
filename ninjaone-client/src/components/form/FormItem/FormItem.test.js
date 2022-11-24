@@ -16,17 +16,15 @@ const setup = ({ label, error = null }) => {
   </FormItem>;
 }
 
-test('renders FormItem component and updates value', () => {
+test('renders FormItem component and updates value', async () => {
   const label = 'address';
   const error = 'Field required';
   const { rerender } = render(setup({ label }));
 
-  const labelElement = screen.getByText(label);
-  expect(labelElement).toBeInTheDocument();
+  await screen.findByText(label);
 
   rerender(setup({ label, error }));
 
-  const errorElement = screen.getByText(error);
-  expect(errorElement).toBeInTheDocument();
+  const errorElement = await screen.findByText(error);
   expect(errorElement).toHaveClass('error');
 });

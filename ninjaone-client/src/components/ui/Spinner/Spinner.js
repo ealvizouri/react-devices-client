@@ -3,19 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import SpinnerContainer from './SpinnerContainer';
 
-const Spinner = ({variant = 'primary', ...props}) => {
-  const colors = {
-    primary: '#3BA1C4',
-    secondary: '#8C8C8C',
-    success: '#89C664',
-    danger: '#DD3900',
-    warning: '#F3AF33',
-    info: '#25677D'
-  }
-  return <SpinnerContainer>
+const colors = {
+  primary: '#3BA1C4',
+  secondary: '#8C8C8C',
+  success: '#89C664',
+  danger: '#DD3900',
+  warning: '#F3AF33',
+  info: '#25677D'
+}
+
+const Spinner = ({variant = 'primary', ...props}) => (
+  <SpinnerContainer>
     <FontAwesomeIcon icon={faSpinner} color={colors[variant] ?? colors.clean} {...props} />
-  </SpinnerContainer>;
-};
+  </SpinnerContainer>
+);
 
 Spinner.propTypes = {
   variant: PropTypes.oneOf([
