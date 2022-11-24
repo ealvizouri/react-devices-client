@@ -14,7 +14,7 @@ test('renders Devices component', async () => {
     <Devices />
   </BrowserRouter>);
   // Expects to find a non MAC device listed
-  expect(await screen.findByText(nonMacDevice.system_name)).toBeInTheDocument();
+  await screen.findByText(nonMacDevice.system_name);
   // Finds and opens the device filter dropdown
   const dropdownFilter = await screen.findByTestId(`dropdown-device-filter-by`);
   userEvent.click(dropdownFilter);

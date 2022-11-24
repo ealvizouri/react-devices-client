@@ -9,12 +9,12 @@ describe('Dropdown component', () => {
     render(<Dropdown
       id="dropdown-test"
       label="Device type"
-      defaultValue={selected}
+      selected={selected}
       items={deviceTypes}
       click={(item) => selected = item}
     />);
-    const button = await screen.findByText('All');
-    expect(button).toBeInTheDocument();
+    const button = await screen.findByLabelText('dropdown');
+    expect(button.textContent).toBe(selected.text);
   });
 
   test('it selects an item', async () => {
@@ -25,18 +25,19 @@ describe('Dropdown component', () => {
     const { rerender } = render(<Dropdown
       id="dropdown-test"
       label="Device type"
-      defaultValue={selected}
+      selected={selected}
       items={deviceTypes}
       click={onClick}
     />);
-    const button = await screen.findByText('All');
-    userEvent.click(button);
+
+    const dropdownButton = await screen.findByLabelText('dropdown');
+    expect(dropdownButton.textContent).toBe('All');
+    userEvent.click(dropdownButton);
 
     const dropdownItems = await screen.findByTestId(`dropdown-items-${id}`);
     expect(dropdownItems).toHaveClass('dropdown-items--open');
 
     const dropdownItem = await screen.findByText(lastDeviceType);
-    expect(dropdownItem).toBeInTheDocument();
 
     userEvent.click(dropdownItem);
 
@@ -45,13 +46,12 @@ describe('Dropdown component', () => {
     rerender(<Dropdown
       id={id}
       label="Device type"
-      defaultValue={selected}
+      selected={selected}
       items={deviceTypes}
       click={onClick}
     />);
 
     const dropdownCurrent = await screen.findByTestId(`dropdown-current-${id}`);
-    expect(dropdownCurrent).toBeInTheDocument();
     expect(dropdownCurrent.textContent).toContain(lastDeviceType);
   });
 });

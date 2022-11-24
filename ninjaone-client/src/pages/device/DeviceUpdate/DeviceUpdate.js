@@ -6,39 +6,38 @@ import Spinner from '../../../components/ui/Spinner';
 import Breadcrumb from '../../../components/ui/Breadcrumb';
 import DeviceForm from '../DeviceForm';
 
+const crumbs = [
+  {
+    to: '/',
+    text: 'Dashboard'
+  },
+  {
+    text: 'Update device'
+  }
+];
+
 const DeviceUpdate = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
   const { data: device, loading: deviceLoading } = useFecth(`devices/${id}`);
-  const crumbs = [
-    {
-      to: '/',
-      text: 'Dashboard'
-    },
-    {
-      text: 'Update device'
-    }
-  ];
 
-  const onSubmit = useCallback((values) => {
+  const onSubmit = useCallback(async (values) => {
     setIsLoading(true);
     values.hdd_capacity = values.hdd_capacity.replaceAll(',', '');
-    updateDevice(values, id)
-      .then(() => {
-        setIsLoading(false);
-        navigate('/');
-      })
-      .catch(err => {
-        console.log(err);
-        setIsLoading(false);
-      });
-  }, []);
+    const { err } = await updateDevice(values, id);
+    setIsLoading(false);
+    if (err) {
+      console.log(err);
+    } else {
+      navigate('/');
+    }
+  }, [id, navigate]);
 
-  return <>
+  return (<>
     <Breadcrumb crumbs={crumbs} />
     <section>
-      {isLoading || deviceLoading ? <Spinner /> : null}
+      {(isLoading || deviceLoading) && <Spinner />}
       {device ? <DeviceForm
         initialValues={{
           system_name: device.system_name,
@@ -48,7 +47,7 @@ const DeviceUpdate = () => {
         onSubmit={onSubmit}
       /> : null}
     </section>
-  </>;
+  </>);
 }
 
 export default DeviceUpdate;

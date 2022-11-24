@@ -6,7 +6,7 @@ describe('Button component', () => {
   test('renders Button component', async () => {
     render(<Button>A button</Button>);
     const button = await screen.findByText('A button');
-    expect(button).toBeInTheDocument();
+    expect(button.textContent).toBe('A button');
   });
 
   test('click changes value to true', async () => {

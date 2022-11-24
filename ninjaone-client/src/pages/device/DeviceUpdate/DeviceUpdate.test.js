@@ -6,10 +6,10 @@ test('renders DeviceUpdate page component', async () => {
   render(<BrowserRouter>;
     <DeviceUpdate />
   </BrowserRouter>);
-  expect(await screen.findByText("Dashboard")).toBeInTheDocument();
-  expect(await screen.findByText("Update device")).toBeInTheDocument();
-  expect(await screen.findByLabelText("system_name")).toBeInTheDocument();
-  expect(await screen.findByLabelText("type")).toBeInTheDocument();
-  expect(await screen.findByLabelText("hdd_capacity")).toBeInTheDocument();
+  await screen.findByText("Dashboard");
+  await screen.findByText("Update device");
+  await screen.findByLabelText("system_name");
+  await screen.findByLabelText("type");
+  await screen.findByLabelText("hdd_capacity");
 });
 

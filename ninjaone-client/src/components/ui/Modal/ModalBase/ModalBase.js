@@ -13,12 +13,14 @@ const ModalBase = ({ id, open, size, sizeExact, close, children }) => {
     return () => {
       document.removeEventListener('click', findClosest);
     }
-  }, []);
-  return <ModalBaseContainer open={open} size={size} sizeExact={sizeExact}>
-    {open ?<div id={id} className="modal">
-      {children}
-    </div> : null}
-  </ModalBaseContainer>;
+  }, [id, close]);
+  return (
+    <ModalBaseContainer open={open} size={size} sizeExact={sizeExact}>
+      {open ?<div id={id} className="modal">
+        {children}
+      </div> : null}
+    </ModalBaseContainer>
+  );
 }
 
 ModalBase.propTypes = {

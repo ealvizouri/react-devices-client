@@ -3,8 +3,8 @@ import ModalBase from '../ModalBase';
 import ModalConfirmContainer from './ModalConfirmContainer';
 import Button from '../../Button';
 
-const ModalConfirm = ({ id, open, onConfirm, onCancel, size = 'sm', sizeExact, children }) => {
-  return <ModalBase id={id} open={open} size={size} sizeExact={sizeExact} close={onCancel}>
+const ModalConfirm = ({ id, open, onConfirm, onCancel, size = 'sm', sizeExact, children }) => (
+  <ModalBase id={id} open={open} size={size} sizeExact={sizeExact} close={onCancel}>
     <ModalConfirmContainer>
       <div className="content">
       {children}
@@ -15,7 +15,7 @@ const ModalConfirm = ({ id, open, onConfirm, onCancel, size = 'sm', sizeExact, c
       </div>
     </ModalConfirmContainer>
   </ModalBase>
-}
+);
 
 ModalConfirm.propTypes = {
   id: PropTypes.string.isRequired,
