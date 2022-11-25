@@ -11,10 +11,10 @@ const DeviceInfo = ({ systemName, type, hddCapacity }) => {
   );
   return (
     <DeviceInfoContainer>
-    <p className="system-name">{systemName}</p>
-    <p className="type">{typeName}</p>
-    <p className="hdd-capacity">{format.commaSeparated(hddCapacity)} GB</p>
-  </DeviceInfoContainer>
+      <p className="system-name">{systemName}</p>
+      <p className="type">{typeName}</p>
+      <p className="hdd-capacity">{format.commaSeparated(hddCapacity)} GB</p>
+    </DeviceInfoContainer>
   );
 }
 
