@@ -76,9 +76,11 @@ cd ninjaone-client
 Then...
 ```
 npm start // macOS os linux
+```
+```
 npm run start-pc // windows
 ```
-`NOTE: npm start will start the server at port 3001.`
+`NOTE: client will start at PORT 3001.`
 
 Visit <a href="http://localhost:3001">http://localhost:3001</a> to view this project
 
